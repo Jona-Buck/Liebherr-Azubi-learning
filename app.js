@@ -8,7 +8,9 @@ function refreshIcons() {
 let toastTimer;
 function showToast(message) {
   const toast = $("#toast");
-  $("#toast-message").textContent = message;
+  const label = $("#toast-message");
+  if (!toast || !label) return;
+  label.textContent = message;
   toast.classList.add("show");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove("show"), 2600);
@@ -25,60 +27,135 @@ const viewInfo = {
   settings: ["Einstellungen", "Verwalte dein Profil und deine Lernpräferenzen."]
 };
 
+const viewIcons = {
+  modules: "book-open",
+  exam: "clipboard-check",
+  cards: "layers",
+  assistant: "sparkles",
+  stats: "chart-no-axes-combined",
+  favorites: "bookmark",
+  settings: "settings-2"
+};
+
+const dashboardMarkup = $("#main-content").innerHTML;
+let lastModalTrigger = null;
+
 function switchView(view) {
   const info = viewInfo[view] || viewInfo.dashboard;
-  $$(".nav-item[data-view]").forEach(item => item.classList.toggle("active", item.dataset.view === view));
+
+  $$(".sidebar .nav-item[data-view]").forEach(item => {
+    const active = item.dataset.view === view;
+    item.classList.toggle("active", active);
+    if (active) item.setAttribute("aria-current", "page");
+    else item.removeAttribute("aria-current");
+  });
+
   $("#breadcrumb-current").textContent = info[0];
+
   if (view === "dashboard") {
     $("#main-content").innerHTML = dashboardMarkup;
     refreshIcons();
     bindActions();
     return;
   }
-  $("#main-content").innerHTML = `
-    <section class="page-heading">
-      <div><div class="eyebrow"><span class="eyebrow-line"></span> AZUBI.ACADEMY</div><h1>${info[0]}</h1><p>${info[1]}</p></div>
-    </section>
-    <section class="panel" style="padding:30px;min-height:290px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center">
-      <span class="modal-icon"><i data-lucide="${view === "assistant" ? "sparkles" : view === "exam" ? "clipboard-check" : view === "cards" ? "layers" : view === "stats" ? "chart-no-axes-combined" : "book-open"}"></i></span>
-      <h2 style="font-size:18px;margin:0 0 8px">${view === "modules" ? "Deine Lernmodule" : info[0]}</h2>
-      <p style="font-size:12px;line-height:1.7;color:#7c899a;max-width:420px;margin:0 0 17px">${view === "modules" ? "Hier findest du später deine Lerninhalte nach Fachgebiet, Ausbildungsjahr und Fortschritt sortiert." : "Dieser Bereich ist im ersten Layout als Vorschau angelegt. Die eigentliche Funktion bauen wir im nächsten Entwicklungsschritt."}</p>
-      <button class="button button-primary" data-view="dashboard"><i data-lucide="layout-dashboard"></i> Zurück zum Dashboard</button>
-      <span style="font-size:9px;color:#a0aab6;margin-top:14px">LAYOUT-VORSCHAU · FUNKTIONEN FOLGEN</span>
-    </section>`;
+
+  const icon = viewIcons[view] || "book-open";
+  const title = view === "modules" ? "Deine Lernmodule" : info[0];
+  const description = view === "modules"
+    ? "Hier findest du später deine Lerninhalte nach Fachgebiet, Ausbildungsjahr und Fortschritt sortiert."
+    : "Dieser Bereich ist als Vorschau angelegt. Die eigentliche Funktion kann im nächsten Entwicklungsschritt ergänzt werden.";
+
+  $("#main-content").innerHTML =
+    '<section class="page-heading">' +
+      '<div><div class="eyebrow"><span class="eyebrow-line"></span> AZUBI.ACADEMY</div>' +
+      '<h1>' + info[0] + '</h1><p>' + info[1] + '</p></div>' +
+    '</section>' +
+    '<section class="panel placeholder-panel">' +
+      '<span class="modal-icon"><i data-lucide="' + icon + '"></i></span>' +
+      '<h2>' + title + '</h2>' +
+      '<p>' + description + '</p>' +
+      '<button class="button button-primary" data-view="dashboard"><i data-lucide="layout-dashboard"></i> Zurück zum Dashboard</button>' +
+      '<span class="placeholder-note">LAYOUT-VORSCHAU · FUNKTIONEN FOLGEN</span>' +
+    '</section>';
+
   refreshIcons();
-  $$("[data-view]", $("#main-content")).forEach(item => item.addEventListener("click", () => switchView(item.dataset.view)));
+  bindActions();
 }
 
-const dashboardMarkup = $("#main-content").innerHTML;
-
-function openExamModal() {
-  $("#modal").classList.add("open");
-  $("#modal").setAttribute("aria-hidden", "false");
+function openExamModal(trigger) {
+  const modal = $("#modal");
+  lastModalTrigger = trigger || document.activeElement;
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  $("#modal-close").focus();
 }
+
 function closeExamModal() {
-  $("#modal").classList.remove("open");
-  $("#modal").setAttribute("aria-hidden", "true");
+  const modal = $("#modal");
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  if (lastModalTrigger && typeof lastModalTrigger.focus === "function") {
+    lastModalTrigger.focus();
+  }
 }
+
 function bindActions() {
-  $("[data-view]", $("#main-content")).forEach(item => item.addEventListener("click", () => switchView(item.dataset.view)));
-  $$('[data-action="start-exam"]').forEach(item => item.addEventListener("click", openExamModal));
-  $$('[data-action="continue-learning"]').forEach(item => item.addEventListener("click", () => showToast("Lernmodul „Schützschaltungen“ ausgewählt.")));
-  $$('[data-action="start-review"]').forEach(item => item.addEventListener("click", () => showToast("Deine Wiederholungseinheit ist ausgewählt.")));
-  $$("[data-subject]").forEach(item => item.addEventListener("click", () => showToast("Lernbereich „" + item.dataset.subject + "“ ausgewählt.")));
+  $$("[data-view]", $("#main-content")).forEach(item => {
+    item.addEventListener("click", event => {
+      if (item.tagName === "A") event.preventDefault();
+      switchView(item.dataset.view);
+    });
+  });
+
+  $$('[data-action="start-exam"]', $("#main-content")).forEach(item => {
+    item.addEventListener("click", () => openExamModal(item));
+  });
+
+  $$('[data-action="continue-learning"]', $("#main-content")).forEach(item => {
+    item.addEventListener("click", () => showToast("Lernmodul „Schützschaltungen“ ausgewählt."));
+  });
+
+  $$('[data-action="start-review"]', $("#main-content")).forEach(item => {
+    item.addEventListener("click", () => showToast("Deine Wiederholungseinheit ist ausgewählt."));
+  });
+
+  $$("[data-subject]", $("#main-content")).forEach(item => {
+    item.addEventListener("click", () => showToast("Lernbereich „" + item.dataset.subject + "“ ausgewählt."));
+  });
 }
-$(".sidebar [data-view]").forEach(item => item.addEventListener("click", () => switchView(item.dataset.view)));
-$(".help-card a").addEventListener("click", event => { event.preventDefault(); showToast("Die Support-Kontaktmöglichkeit wird später eingerichtet."); });
-bindActions();
+
+$(".sidebar [data-view]").forEach;
+$$(".sidebar [data-view]").forEach(item => {
+  item.addEventListener("click", event => {
+    if (item.tagName === "A") event.preventDefault();
+    switchView(item.dataset.view);
+  });
+});
+
+$(".help-card a").addEventListener("click", event => {
+  event.preventDefault();
+  showToast("Die Support-Kontaktmöglichkeit wird später eingerichtet.");
+});
 
 $("#modal-close").addEventListener("click", closeExamModal);
-$("#modal").addEventListener("click", event => { if (event.target === $("#modal")) closeExamModal(); });
+$("#modal").addEventListener("click", event => {
+  if (event.target === $("#modal")) closeExamModal();
+});
 $("#modal-start").addEventListener("click", () => {
   closeExamModal();
   showToast("Die Prüfungssimulation wird in einem nächsten Schritt ergänzt.");
 });
-document.addEventListener("keydown", event => { if (event.key === "Escape") closeExamModal(); });
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape") closeExamModal();
+});
 
-const date = new Intl.DateTimeFormat("de-DE", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+const date = new Intl.DateTimeFormat("de-DE", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric"
+});
 $("#today-date").textContent = date.format(new Date());
+
+bindActions();
 refreshIcons();
