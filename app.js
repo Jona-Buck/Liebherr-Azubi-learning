@@ -61,12 +61,14 @@ function closeExamModal() {
   $("#modal").setAttribute("aria-hidden", "true");
 }
 function bindActions() {
-  $$("[data-view]").forEach(item => item.addEventListener("click", () => switchView(item.dataset.view)));
+  $("[data-view]", $("#main-content")).forEach(item => item.addEventListener("click", () => switchView(item.dataset.view)));
   $$('[data-action="start-exam"]').forEach(item => item.addEventListener("click", openExamModal));
   $$('[data-action="continue-learning"]').forEach(item => item.addEventListener("click", () => showToast("Lernmodul „Schützschaltungen“ ausgewählt.")));
   $$('[data-action="start-review"]').forEach(item => item.addEventListener("click", () => showToast("Deine Wiederholungseinheit ist ausgewählt.")));
   $$("[data-subject]").forEach(item => item.addEventListener("click", () => showToast("Lernbereich „" + item.dataset.subject + "“ ausgewählt.")));
 }
+$(".sidebar [data-view]").forEach(item => item.addEventListener("click", () => switchView(item.dataset.view)));
+$(".help-card a").addEventListener("click", event => { event.preventDefault(); showToast("Die Support-Kontaktmöglichkeit wird später eingerichtet."); });
 bindActions();
 
 $("#modal-close").addEventListener("click", closeExamModal);
