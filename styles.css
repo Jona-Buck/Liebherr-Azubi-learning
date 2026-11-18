@@ -469,3 +469,10 @@ body{background:var(--canvas);color:var(--ink)}
 .continue-card::after{z-index:0}
 .continue-top,.continue-content,.continue-progress-row,.progress-track,.continue-bottom{position:relative;z-index:1}
 @media(max-width:760px){.continue-card::before{right:2%;width:38%;opacity:.11}}
+
+/* Visibility correction for the background contactor */
+.continue-card::before{
+ right:7%!important;top:2%!important;width:min(42%,460px)!important;height:94%!important;
+ opacity:.42!important;filter:none!important;mask-image:none!important;
+ background-color:transparent!important;
+}
