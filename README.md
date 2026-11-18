@@ -1,32 +1,39 @@
-# AZUBI.ACADEMY – Dashboard-Layout
+# AZUBI.ACADEMY – Apple-inspiriertes Dashboard
 
-Erster Frontend-Entwurf für die Lernplattform im Repository **Liebherr-Azubi-learning**.
+Frontend-Entwurf für die Lernplattform im Repository **Liebherr-Azubi-learning**.
 
-## Enthalten
+## Design
 
-- Desktop-Dashboard im Stil „Modern Industrial Learning“
-- Dunkle Navy-Sidebar mit Lernnavigation
-- Heller Dashboard-Bereich
-- Lernfortschritt und Weiterlernen-Karte
-- Lernbereich-Karten für Elektrotechnik, Steuerungstechnik, technische Mathematik sowie Wirtschaft & Soziales
-- Lernaktivität, nächste Empfehlung und Schnellstart
-- Responsive Anpassungen für Tablet und Smartphone
-- Demo-Interaktionen: Navigation, Toast-Hinweise und Prüfungs-Modal
+Die Oberfläche orientiert sich an den aktuellen Apple Human Interface Guidelines, ohne Apple-Oberflächen oder Markenassets zu kopieren:
+
+- Systemnahe Typografie und klare visuelle Hierarchie
+- Heller, ruhiger Hintergrund mit großzügigen Abständen
+- Dezente, abgerundete Karten und klare Trennlinien
+- Blaue Akzentfarbe für Aktionen und Navigation
+- Transparente, leicht verschwommene Navigation und Kopfzeile
+- Flüssige, zurückhaltende Hover- und Dialoganimationen
+- Automatische Anpassung an den hellen oder dunklen Systemmodus
+- Responsive Layouts für Desktop, Tablet und Smartphone
+- Tastaturfokus und reduzierte Animationen für Barrierefreiheit
+
+## Enthaltene Bereiche
+
+- Dashboard mit Lernfortschritt und Weiterlernen-Karte
+- Lernmodule für Elektrotechnik, Steuerungstechnik, technische Mathematik sowie Wirtschaft & Soziales
+- Lernaktivität und nächste Lerneinheit
+- Schnellaktionen und Prüfungs-Modal
+- Navigation zu Lernmodulen, Prüfungssimulation, Karteikarten, KI-Lernassistent, Ergebnissen, Favoriten und Einstellungen
+- Demo-Interaktionen für Navigation, Toast-Hinweise und Prüfungs-Modal
 
 ## Lokal ansehen
 
-Es ist aktuell eine statische HTML/CSS/JavaScript-Demo – noch ohne Framework, Anmeldung, Datenbank oder echte Lernfunktionen.
+Es ist weiterhin eine statische HTML/CSS/JavaScript-Demo – ohne Framework, Anmeldung, Datenbank oder echte Lernfunktionen.
 
-Einfach `index.html` im Browser öffnen oder lokal einen kleinen Webserver starten:
+Starte im Projektordner einen lokalen Server mit dem Befehl python3 -m http.server 8000 und öffne anschließend http://localhost:8000.
 
-```bash
-python3 -m http.server 8000
-```
+## Hinweis
 
-Dann im Browser `http://localhost:8000` öffnen.
+Angezeigte Namen, Fortschrittswerte und Lernaktivitäten sind Beispieldaten. AZUBI.ACADEMY ist ein Arbeitsname; es wird kein offizielles Apple- oder Liebherr-Logo verwendet.
 
-## Nächster Schritt
-
-Nach Feedback zum Layout können die weiteren Ansichten ausgearbeitet und anschließend Authentifizierung, Datenbank und echte Lernfunktionen ergänzt werden.
-
-Alle angezeigten Namen, Fortschrittswerte und Lernaktivitäten sind Beispieldaten. AZUBI.ACADEMY ist ein Arbeitsname; es wird kein offizielles Liebherr-Logo verwendet.
+Die Gestaltungsgrundlagen stammen aus Apples Human Interface Guidelines:
+https://developer.apple.com/design/human-interface-guidelines/
