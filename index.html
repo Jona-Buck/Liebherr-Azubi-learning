@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111d30">
+  <meta name="description" content="AZUBI.ACADEMY – die moderne Lernplattform für technische Ausbildungen.">
+  <title>Dashboard | AZUBI.ACADEMY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="AZUBI.ACADEMY Startseite" data-view="dashboard">
+        <span class="brand-mark"><i data-lucide="zap"></i></span>
+        <span class="brand-copy"><strong>AZUBI<span>.</span>ACADEMY</strong><small>LEARNING PLATFORM</small></span>
+      </a>
+
+      <div class="workspace-switcher">
+        <span class="workspace-icon"><i data-lucide="factory"></i></span>
+        <span><strong>Technische Ausbildung</strong><small>Elektroniker · Betriebstechnik</small></span>
+        <i class="switch-chevron" data-lucide="chevrons-up-down"></i>
+      </div>
+
+      <nav class="main-nav" aria-label="Hauptnavigation">
+        <div class="nav-label">LERNEN</div>
+        <button class="nav-item active" data-view="dashboard"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></button>
+        <button class="nav-item" data-view="modules"><i data-lucide="book-open"></i><span>Lernmodule</span><span class="nav-count">12</span></button>
+        <button class="nav-item" data-view="exam"><i data-lucide="clipboard-check"></i><span>Prüfungssimulation</span></button>
+        <button class="nav-item" data-view="cards"><i data-lucide="layers"></i><span>Karteikarten</span><span class="nav-dot"></span></button>
+        <div class="nav-label nav-label-spaced">EXTRAS</div>
+        <button class="nav-item" data-view="assistant"><i data-lucide="sparkles"></i><span>KI-Lernassistent</span><span class="beta-tag">BETA</span></button>
+        <button class="nav-item" data-view="stats"><i data-lucide="chart-no-axes-combined"></i><span>Meine Ergebnisse</span></button>
+        <button class="nav-item" data-view="favorites"><i data-lucide="bookmark"></i><span>Favoriten</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="help-card">
+          <div class="help-icon"><i data-lucide="circle-help"></i></div>
+          <strong>Fragen oder Feedback?</strong>
+          <p>Wir helfen dir gerne weiter.</p>
+          <a href="mailto: support@example.com">Support kontaktieren <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <button class="nav-item settings-link" data-view="settings"><i data-lucide="settings-2"></i><span>Einstellungen</span></button>
+        <div class="profile">
+          <div class="avatar">AM</div>
+          <div class="profile-copy"><strong>Alex Müller</strong><small>2. Ausbildungsjahr</small></div>
+          <button class="icon-button profile-more" aria-label="Profiloptionen"><i data-lucide="more-horizontal"></i></button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Mein Lernbereich</span><i data-lucide="chevron-right"></i><strong id="breadcrumb-current">Dashboard</strong></div>
+        <div class="topbar-actions">
+          <div class="today-label"><i data-lucide="calendar-days"></i><span id="today-date">Mittwoch, 18. November 2026</span></div>
+          <button class="icon-button notification-button" aria-label="Benachrichtigungen"><i data-lucide="bell"></i><span class="notification-indicator"></span></button>
+          <div class="topbar-divider"></div>
+          <button class="top-profile"><span class="avatar avatar-small">AM</span><span>Alex Müller</span><i data-lucide="chevron-down"></i></button>
+        </div>
+      </header>
+
+      <div class="content-wrap" id="main-content">
+        <section class="page-heading">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> DEIN LERNBEREICH</div>
+            <h1>Moin, Alex <span class="wave">👋</span></h1>
+            <p>Bereit für deine nächste Lerneinheit?</p>
+          </div>
+          <div class="heading-side">
+            <div class="streak-pill"><span class="streak-flame"><i data-lucide="flame"></i></span><span><strong>5 Tage</strong><small>Lernserie</small></span></div>
+            <button class="button button-primary" data-action="start-exam"><i data-lucide="play"></i> Prüfung starten</button>
+          </div>
+        </section>
+
+        <section class="overview-grid">
+          <article class="panel progress-panel">
+            <div class="panel-heading">
+              <div><span class="section-kicker">DEIN FORTSCHRITT</span><h2>Prüfungsvorbereitung</h2></div>
+              <button class="more-button" aria-label="Weitere Optionen"><i data-lucide="more-horizontal"></i></button>
+            </div>
+            <div class="progress-main">
+              <div class="progress-ring" style="--progress:68">
+                <div class="progress-ring-inner"><strong>68<span>%</span></strong><small>Gesamt</small></div>
+              </div>
+              <div class="progress-detail">
+                <strong>Du bist auf einem guten Weg!</strong>
+                <p>Du hast bereits mehr als die Hälfte deiner Lernziele erreicht. Bleib dran!</p>
+                <div class="progress-meta"><span><i data-lucide="check-circle-2"></i> 34 von 50 Lernzielen</span><span class="meta-separator">·</span><span>16 offen</span></div>
+              </div>
+            </div>
+            <div class="panel-footer progress-footer">
+              <div class="mini-stat"><span class="mini-stat-icon green"><i data-lucide="book-check"></i></span><span><strong>126</strong><small>Fragen gelernt</small></span></div>
+              <div class="footer-divider"></div>
+              <div class="mini-stat"><span class="mini-stat-icon blue"><i data-lucide="target"></i></span><span><strong>84<span class="unit">%</span></strong><small>Trefferquote</small></span></div>
+              <div class="footer-divider"></div>
+              <div class="mini-stat"><span class="mini-stat-icon orange"><i data-lucide="clock-3"></i></span><span><strong>8,5<span class="unit">h</span></strong><small>Lernzeit</small></span></div>
+            </div>
+          </article>
+
+          <article class="continue-card">
+            <div class="continue-top"><span class="continue-label"><i data-lucide="bookmark"></i> WEITERLERNEN</span><span class="status-badge status-progress"><span></span> In Bearbeitung</span></div>
+            <div class="continue-content">
+              <div class="module-symbol symbol-circuit"><i data-lucide="workflow"></i></div>
+              <div class="continue-info"><span class="module-overline">ELEKTROTECHNIK · MODUL 04</span><h2>Steuerungstechnik: Schützschaltungen</h2><p>Grundlagen, Selbsthaltung und Verriegelung verstehen.</p></div>
+            </div>
+            <div class="continue-progress-row"><span>Dein Fortschritt</span><strong>6 von 10 Lektionen <b>60 %</b></strong></div>
+            <div class="progress-track"><span style="width:60%"></span></div>
+            <div class="continue-bottom"><span class="duration"><i data-lucide="clock-3"></i> Noch ca. 15 Min.</span><button class="button button-primary" data-action="continue-learning">Weiterlernen <i data-lucide="arrow-right"></i></button></div>
+          </article>
+        </section>
+
+        <section class="section-block">
+          <div class="section-heading"><div><span class="section-kicker">DEINE AUSBILDUNG</span><h2>Lernbereiche</h2></div><button class="text-link" data-view="modules">Alle Lernmodule <i data-lucide="arrow-right"></i></button></div>
+          <div class="subject-grid">
+            <button class="subject-card" data-subject="Elektrotechnik">
+              <span class="subject-top"><span class="subject-icon subject-orange"><i data-lucide="zap"></i></span><span class="subject-arrow"><i data-lucide="arrow-up-right"></i></span></span>
+              <strong>Elektrotechnik</strong><span class="subject-caption">Grundlagen &amp; Anwendungen</span>
+              <span class="subject-progress"><span class="subject-track"><i style="width:76%"></i></span><b>76 %</b></span>
+              <span class="subject-meta">8 Module <span>·</span> 42 Lektionen</span>
+            </button>
+            <button class="subject-card" data-subject="Steuerungstechnik">
+              <span class="subject-top"><span class="subject-icon subject-blue"><i data-lucide="workflow"></i></span><span class="subject-arrow"><i data-lucide="arrow-up-right"></i></span></span>
+              <strong>Steuerungstechnik</strong><span class="subject-caption">SPS, Schütze &amp; Relais</span>
+              <span class="subject-progress"><span class="subject-track"><i style="width:52%"></i></span><b>52 %</b></span>
+              <span class="subject-meta">6 Module <span>·</span> 31 Lektionen</span>
+            </button>
+            <button class="subject-card" data-subject="Technische Mathematik">
+              <span class="subject-top"><span class="subject-icon subject-violet"><i data-lucide="calculator"></i></span><span class="subject-arrow"><i data-lucide="arrow-up-right"></i></span></span>
+              <strong>Technische Mathematik</strong><span class="subject-caption">Formeln &amp; Berechnungen</span>
+              <span class="subject-progress"><span class="subject-track"><i style="width:34%"></i></span><b>34 %</b></span>
+              <span class="subject-meta">5 Module <span>·</span> 26 Lektionen</span>
+            </button>
+            <button class="subject-card" data-subject="Wirtschaft & Soziales">
+              <span class="subject-top"><span class="subject-icon subject-green"><i data-lucide="landmark"></i></span><span class="subject-arrow"><i data-lucide="arrow-up-right"></i></span></span>
+              <strong>Wirtschaft &amp; Soziales</strong><span class="subject-caption">WiSo &amp; Berufsleben</span>
+              <span class="subject-progress"><span class="subject-track"><i style="width:88%"></i></span><b>88 %</b></span>
+              <span class="subject-meta">4 Module <span>·</span> 18 Lektionen</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="lower-grid">
+          <article class="panel activity-panel">
+            <div class="section-heading compact"><div><span class="section-kicker">DRANBLEIBEN LOHNT SICH</span><h2>Deine Lernaktivität</h2></div><button class="select-button">Diese Woche <i data-lucide="chevron-down"></i></button></div>
+            <div class="activity-summary"><strong>4,5 <small>Std.</small></strong><span class="activity-change"><i data-lucide="trending-up"></i> +18 % <small>zur Vorwoche</small></span></div>
+            <div class="chart" aria-label="Lernzeit der letzten sieben Tage">
+              <div class="chart-y"><span>2 h</span><span>1 h</span><span>0</span></div>
+              <div class="chart-main">
+                <div class="chart-gridline line-one"></div><div class="chart-gridline line-two"></div><div class="chart-gridline line-three"></div>
+                <div class="bar-group"><div class="bar" style="height:38%"></div><span>Do</span></div>
+                <div class="bar-group"><div class="bar" style="height:65%"></div><span>Fr</span></div>
+                <div class="bar-group"><div class="bar bar-muted" style="height:12%"></div><span>Sa</span></div>
+                <div class="bar-group"><div class="bar" style="height:82%"></div><span>So</span></div>
+                <div class="bar-group"><div class="bar" style="height:54%"></div><span>Mo</span></div>
+                <div class="bar-group"><div class="bar bar-today" style="height:68%"></div><span>Di</span></div>
+                <div class="bar-group"><div class="bar bar-empty" style="height:4%"></div><span>Mi</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel next-step-panel">
+            <div class="section-heading compact"><div><span class="section-kicker">DEIN NÄCHSTER SCHRITT</span><h2>Heute für dich</h2></div><span class="sparkle-icon"><i data-lucide="sparkles"></i></span></div>
+            <div class="recommendation">
+              <span class="recommend-icon"><i data-lucide="target"></i></span>
+              <div><strong>Selbsthaltung sicher beherrschen</strong><p>Wiederhole 8 Fragen zu Schützschaltungen und festige dein Wissen.</p></div>
+            </div>
+            <div class="recommend-footer"><span><i data-lucide="clock-3"></i> ca. 10 Minuten</span><button class="text-link" data-action="start-review">Jetzt wiederholen <i data-lucide="arrow-right"></i></button></div>
+          </article>
+        </section>
+
+        <section class="quick-actions">
+          <div class="quick-intro"><span class="section-kicker">DIREKT LOSLEGEN</span><h2>Was möchtest du tun?</h2></div>
+          <button class="quick-action" data-action="start-exam"><span class="quick-icon quick-orange"><i data-lucide="clipboard-check"></i></span><span><strong>Prüfung simulieren</strong><small>Teste deinen Wissensstand</small></span><i class="quick-arrow" data-lucide="arrow-up-right"></i></button>
+          <button class="quick-action" data-action="start-review"><span class="quick-icon quick-blue"><i data-lucide="layers"></i></span><span><strong>Karteikarten lernen</strong><small>Wissen schnell wiederholen</small></span><i class="quick-arrow" data-lucide="arrow-up-right"></i></button>
+          <button class="quick-action" data-view="assistant"><span class="quick-icon quick-violet"><i data-lucide="message-circle"></i></span><span><strong>KI-Lernassistent</strong><small>Stelle deine Fachfrage</small></span><i class="quick-arrow" data-lucide="arrow-up-right"></i></button>
+        </section>
+
+        <footer class="page-footer"><span>© 2026 AZUBI.ACADEMY <span class="footer-dot">·</span> Dein Weg zur Prüfung</span><span><i data-lucide="shield-check"></i> Dein Lernfortschritt bleibt privat</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"><i data-lucide="check-circle-2"></i><span id="toast-message">Aktion ausgewählt</span></div>
+  <div class="modal-backdrop" id="modal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close icon-button" id="modal-close" aria-label="Schließen"><i data-lucide="x"></i></button>
+      <span class="modal-icon"><i data-lucide="clipboard-check"></i></span>
+      <span class="section-kicker">PRÜFUNGSSIMULATION</span>
+      <h2 id="modal-title">Bereit für den Wissenstest?</h2>
+      <p>Starte eine kurze Demo-Prüfung mit gemischten Fragen aus deiner Ausbildung.</p>
+      <div class="modal-facts"><span><i data-lucide="list-checks"></i> 20 Fragen</span><span><i data-lucide="clock-3"></i> 30 Minuten</span><span><i data-lucide="bar-chart-3"></i> Gemischte Themen</span></div>
+      <button class="button button-primary modal-start" id="modal-start">Demo starten <i data-lucide="arrow-right"></i></button>
+      <small class="modal-note">Dies ist aktuell eine reine Layout-Demo. Prüfungsergebnisse werden noch nicht gespeichert.</small>
+    </div>
+  </div>
+</body>
+</html>
