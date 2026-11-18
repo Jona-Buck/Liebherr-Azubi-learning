@@ -476,3 +476,13 @@ body{background:var(--canvas);color:var(--ink)}
  opacity:.42!important;filter:none!important;mask-image:none!important;
  background-color:transparent!important;
 }
+
+/* Replace the generic icon with a proper product-style contactor illustration */
+.continue-card::before{
+ right:7%!important;top:3%!important;width:min(38%,390px)!important;height:94%!important;
+ background-image:url("assets/contactor.svg")!important;
+ background-repeat:no-repeat!important;background-position:center!important;background-size:contain!important;
+ opacity:.20!important;filter:drop-shadow(0 8px 14px rgba(0,20,60,.3))!important;
+ mask-image:none!important;
+}
+@media(max-width:760px){.continue-card::before{width:40%!important;opacity:.12!important;right:2%!important}}
