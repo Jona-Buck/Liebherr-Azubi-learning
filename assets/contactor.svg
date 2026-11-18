@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420">
+<defs>
+ <linearGradient id="body" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#353b47"/><stop offset=".55" stop-color="#202733"/><stop offset="1" stop-color="#121923"/></linearGradient>
+ <linearGradient id="face" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e6edf5"/><stop offset=".55" stop-color="#bfcbd8"/><stop offset="1" stop-color="#8e9cac"/></linearGradient>
+ <linearGradient id="metal" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#f3f6f9"/><stop offset="1" stop-color="#8493a4"/></linearGradient>
+ <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<ellipse cx="190" cy="390" rx="132" ry="20" fill="#001d47" opacity=".35" filter="url(#shadow)"/>
+<!-- back mount -->
+<path d="M78 45 L279 28 L311 58 L305 333 L276 360 L75 376 L55 347 L60 76Z" fill="url(#body)" stroke="#8796a9" stroke-opacity=".32" stroke-width="2"/>
+<path d="M76 45 L279 28 L311 58 L105 82Z" fill="#485261" opacity=".7"/>
+<path d="M105 82 L311 58 L305 333 L276 360 L75 376Z" fill="#1c2531"/>
+<!-- upper terminal slots -->
+<g fill="#090f18" stroke="#6f7d8f" stroke-opacity=".28" stroke-width="2">
+ <path d="M90 91l34-3 2 37-35 3z"/><path d="M137 86l34-3 2 37-35 3z"/><path d="M184 81l34-3 2 37-35 3z"/><path d="M231 76l34-3 2 37-35 3z"/>
+</g>
+<!-- front face -->
+<path d="M32 94 L226 78 L253 105 L248 354 L47 370 L24 344Z" fill="url(#face)" stroke="#f6fbff" stroke-opacity=".38" stroke-width="2"/>
+<path d="M226 78 L253 105 L248 354 L229 363Z" fill="#8b99aa"/>
+<!-- terminals row -->
+<g fill="#46515f" opacity=".95" font-family="Arial,sans-serif" font-size="14" font-weight="700">
+ <text x="43" y="117">1 L1</text><text x="82" y="113">3 L2</text><text x="122" y="110">5 L3</text><text x="160" y="107">13 NO</text><text x="207" y="104">A1</text>
+</g>
+<g>
+ <g fill="#778696" stroke="#dbe5ef" stroke-width="2"><ellipse cx="49" cy="139" rx="16" ry="18"/><ellipse cx="91" cy="136" rx="16" ry="18"/><ellipse cx="132" cy="133" rx="16" ry="18"/><ellipse cx="173" cy="130" rx="16" ry="18"/><ellipse cx="214" cy="127" rx="16" ry="18"/></g>
+ <g fill="#28323f" stroke="#aeb9c6" stroke-width="2"><circle cx="49" cy="139" r="9"/><circle cx="91" cy="136" r="9"/><circle cx="132" cy="133" r="9"/><circle cx="173" cy="130" r="9"/><circle cx="214" cy="127" r="9"/></g>
+ <g stroke="#c6d1dd" stroke-width="3"><path d="M43 139h12m-6-6v12M85 136h12m-6-6v12M126 133h12m-6-6v12M167 130h12m-6-6v12M208 127h12m-6-6v12"/></g>
+</g>
+<!-- face details -->
+<path d="M54 166h42v124H54z M113 165h43v124h-43z M171 162h27v84h-27z" fill="#111924" opacity=".95"/>
+<rect x="123" y="190" width="20" height="44" rx="3" fill="#aa3f32"/><rect x="126" y="194" width="14" height="32" fill="#c64f3c"/>
+<rect x="49" y="302" width="142" height="48" rx="4" fill="#4f91ad" stroke="#d4e5f0" stroke-opacity=".55"/>
+<path d="M49 310h142" stroke="#b9d9e8" stroke-opacity=".35" stroke-width="2"/>
+<!-- lower terminals -->
+<g fill="#46515f" opacity=".95" font-family="Arial,sans-serif" font-size="13" font-weight="700">
+ <text x="43" y="365">2 T1</text><text x="82" y="362">4 T2</text><text x="122" y="359">6 T3</text><text x="160" y="356">14 NO</text><text x="207" y="353">A2</text>
+</g>
+<g fill="url(#metal)" stroke="#7b8999" stroke-width="2"><ellipse cx="49" cy="337" rx="16" ry="17"/><ellipse cx="91" cy="334" rx="16" ry="17"/><ellipse cx="132" cy="331" rx="16" ry="17"/><ellipse cx="173" cy="328" rx="16" ry="17"/><ellipse cx="214" cy="325" rx="16" ry="17"/></g>
+<g fill="#26313f" stroke="#c7d3de" stroke-width="2"><circle cx="49" cy="337" r="8"/><circle cx="91" cy="334" r="8"/><circle cx="132" cy="331" r="8"/><circle cx="173" cy="328" r="8"/><circle cx="214" cy="325" r="8"/></g>
+<g stroke="#d1dce7" stroke-width="3"><path d="M43 337h12m-6-6v12M85 334h12m-6-6v12M126 331h12m-6-6v12M167 328h12m-6-6v12M208 325h12m-6-6v12"/></g>
+</svg>
