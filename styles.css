@@ -455,3 +455,17 @@ body{background:var(--canvas);color:var(--ink)}
 @media(max-width:1200px){.stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.subject-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.content-wrap{padding:24px 18px}.topbar{padding:0 18px}.heading-side{gap:8px}.stat-grid{grid-template-columns:1fr 1fr}.subject-grid{grid-template-columns:1fr}.continue-card{padding:20px}.continue-info h2{font-size:18px}}
 @media(max-width:480px){.stat-grid{grid-template-columns:1fr}.page-heading{align-items:flex-start;flex-direction:column}.heading-side{width:100%;justify-content:space-between}}
+
+/* Low-opacity thematic illustration in the continue-learning banner */
+.continue-card{isolation:isolate}
+.continue-card::before{
+ position:absolute;content:"";z-index:0;pointer-events:none;
+ right:9%;top:8%;width:min(31%,340px);height:82%;
+ background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20400%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23d9edff%22%20stroke-width%3D%227%22%20stroke-linejoin%3D%22round%22%20stroke-linecap%3D%22round%22%3E%3Cpath%20d%3D%22M75%2042h170v55l-24%2028v202H99V125L75%2097z%22%20fill%3D%22%23d9edff%22%20fill-opacity%3D%22.07%22%2F%3E%3Cpath%20d%3D%22M75%2097h170M99%20125h122v202H99z%22%20fill%3D%22%23d9edff%22%20fill-opacity%3D%22.06%22%2F%3E%3Cpath%20d%3D%22M122%20145h76v43h-76zM122%20206h76v43h-76z%22%2F%3E%3Cpath%20d%3D%22M137%20145v-20h46v20M137%20249v28h46v-28%22%2F%3E%3Ccircle%20cx%3D%22137%22%20cy%3D%22164%22%20r%3D%229%22%2F%3E%3Ccircle%20cx%3D%22183%22%20cy%3D%22164%22%20r%3D%229%22%2F%3E%3Ccircle%20cx%3D%22137%22%20cy%3D%22225%22%20r%3D%229%22%2F%3E%3Ccircle%20cx%3D%22183%22%20cy%3D%22225%22%20r%3D%229%22%2F%3E%3Cpath%20d%3D%22M118%20292h84M118%20310h84M118%20328h84%22%2F%3E%3Cpath%20d%3D%22M115%2042v-25h90v25M115%20369v20h90v-20%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+ background-repeat:no-repeat;background-position:center;background-size:contain;
+ opacity:.17;filter:drop-shadow(0 3px 12px rgba(0,20,70,.2));
+ mask-image:linear-gradient(90deg,transparent 0%,black 22%,black 100%);
+}
+.continue-card::after{z-index:0}
+.continue-top,.continue-content,.continue-progress-row,.progress-track,.continue-bottom{position:relative;z-index:1}
+@media(max-width:760px){.continue-card::before{right:2%;width:38%;opacity:.11}}
