@@ -170,12 +170,12 @@ button:focus-visible, a:focus-visible { outline: 3px solid rgba(0,122,255,.42); 
 .text-link { display: inline-flex; align-items: center; gap: 7px; padding: 5px 0; color: var(--accent); font-size: 10px; font-weight: 650; border: 0; background: transparent; cursor: pointer; }
 .text-link:hover { color: var(--accent-hover); }
 .text-link svg { width: 14px; height: 14px; }
-.subject-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 13px; }
-.subject-card { min-width: 0; padding: 16px 16px 14px; text-align: left; color: var(--ink); border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow-card); cursor: pointer; transition: transform .18s ease,border-color .18s ease,box-shadow .18s ease; }
+.subject-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
+.subject-card { min-width: 0; min-height: 190px; padding: 21px 19px 18px; text-align: left; color: var(--ink); border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow-card); cursor: pointer; transition: transform .18s ease,border-color .18s ease,box-shadow .18s ease; }
 .subject-card:hover { transform: translateY(-2px); border-color: rgba(0,122,255,.3); box-shadow: 0 7px 22px rgba(0,0,0,.07); }
 .subject-card:active { transform: scale(.99); }
 .subject-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
-.subject-icon { display: grid; width: 36px; height: 36px; place-items: center; border-radius: 11px; }
+.subject-icon { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 11px; }
 .subject-icon svg { width: 18px; height: 18px; }
 .subject-orange { color: #d98200; background: #fff2df; }
 .subject-blue { color: #1675d1; background: #eaf3ff; }
@@ -184,7 +184,7 @@ button:focus-visible, a:focus-visible { outline: 3px solid rgba(0,122,255,.42); 
 .subject-arrow { display: grid; width: 25px; height: 25px; place-items: center; color: var(--muted-2); border: 1px solid var(--line); border-radius: 50%; transition: color .18s ease,background .18s ease; }
 .subject-arrow svg { width: 13px; height: 13px; }
 .subject-card:hover .subject-arrow { color: var(--accent); background: var(--accent-soft); }
-.subject-card > strong { display: block; font-size: 12px; font-weight: 650; letter-spacing: -.02em; }
+.subject-card > strong { display: block; font-size: 13px; font-weight: 650; letter-spacing: -.02em; }
 .subject-caption { display: block; margin-top: 4px; color: var(--muted); font-size: 9px; }
 .subject-progress { display: flex; align-items: center; gap: 9px; margin-top: 15px; }
 .subject-track { flex: 1; height: 5px; overflow: hidden; border-radius: 9px; background: var(--surface-secondary); }
