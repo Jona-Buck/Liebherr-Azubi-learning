@@ -124,7 +124,6 @@ function bindActions() {
   });
 }
 
-$(".sidebar [data-view]").forEach;
 $$(".sidebar [data-view]").forEach(item => {
   item.addEventListener("click", event => {
     if (item.tagName === "A") event.preventDefault();
