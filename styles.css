@@ -582,3 +582,7 @@ button:focus-visible,a:focus-visible{outline-color:rgba(255,208,0,.5)}
  .flash-rate.rate-green{grid-column:1;grid-row:2}
  .flash-rate.rate-red{grid-column:2;grid-row:2}
 }
+
+
+/* Make the Lernmodule badge readable on hover and active navigation */
+.nav-item:hover .nav-count,.nav-item.active .nav-count{color:#fff!important;background:rgba(255,255,255,.18)!important}
