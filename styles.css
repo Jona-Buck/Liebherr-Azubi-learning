@@ -535,3 +535,8 @@ button:focus-visible,a:focus-visible{outline-color:rgba(255,208,0,.5)}
 .stat-blue{color:#FFD000;background:rgba(255,208,0,.13)}
 .subject-blue,.quick-blue{color:#FFD000;background:rgba(255,208,0,.13)}
 .subject-card:nth-child(2) .subject-track i{background:#FFD000}
+
+
+/* Neutralize blue-tinted dashboard statistic cards */
+.stat-card{background:linear-gradient(135deg,#242424,#1c1c1c)!important;border-color:rgba(255,255,255,.10)!important}
+.stat-progress{background:#383838!important}
