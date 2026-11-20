@@ -572,3 +572,13 @@ button:focus-visible,a:focus-visible{outline-color:rgba(255,208,0,.5)}
 .flash-results h2{margin:7px 0 3px;font-size:32px}.flash-results>p{color:var(--muted);font-size:12px}.flash-result-bars{display:grid;width:100%;gap:15px;margin:25px 0}.flash-result-bars>div{display:grid;grid-template-columns:1fr auto;gap:7px 12px;text-align:left}.flash-result-bars span{color:var(--muted);font-size:11px}.flash-result-bars i{grid-column:1/-1;display:block;height:8px;overflow:hidden;border-radius:8px;background:var(--surface-secondary)}.flash-result-bars em{display:block;height:100%;border-radius:8px}.result-green em{background:#30a46c}.result-red em{background:#ef4444}.flash-result-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;width:100%}.flash-exit{color:var(--ink);border:1px solid var(--line);background:var(--surface-secondary)}
 @media(max-width:760px){.flash-setup{padding:18px}.flash-setup-head{flex-direction:column}.flash-topic-grid{grid-template-columns:1fr}.flash-setup-footer{align-items:flex-start;flex-direction:column}.flash-setup-footer .button{width:100%}.flash-howto{align-items:flex-start;flex-direction:column;gap:9px}.flash-stage{min-height:300px}.flashcard,.flashcard-inner{min-height:280px}.flash-face{padding:26px 22px}.flash-side-hint{top:auto;bottom:-12px;padding:7px 9px;font-size:8px}.hint-green{left:8px}.hint-red{right:8px}.flash-actions{grid-template-columns:1fr 1fr;gap:9px}.flash-flip{grid-column:1/-1;grid-row:1}.flash-rate{min-height:50px;padding:7px}.flash-stats{gap:12px;font-size:9px}.flash-results{padding:25px 18px}}
 @media(prefers-reduced-motion:reduce){.flashcard-inner{transition:none}}
+
+/* Swipe-Richtung auch bei den Schaltflächen: links gewusst, rechts noch üben */
+.flash-rate.rate-green{grid-column:1;grid-row:1}
+.flash-rate.rate-red{grid-column:3;grid-row:1}
+.flash-flip{grid-column:2;grid-row:1}
+@media(max-width:760px){
+ .flash-flip{grid-column:1/-1;grid-row:1}
+ .flash-rate.rate-green{grid-column:1;grid-row:2}
+ .flash-rate.rate-red{grid-column:2;grid-row:2}
+}
