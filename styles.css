@@ -544,3 +544,9 @@ button:focus-visible,a:focus-visible{outline-color:rgba(255,208,0,.5)}
 
 /* Neutral graphite workspace switcher instead of blue */
 .workspace-switcher{background:linear-gradient(135deg,#242424,#1c1c1c)!important;border-color:rgba(255,255,255,.10)!important}
+
+
+/* Learning cards moved into the Lernmodule navigation and neutralized */
+.subject-card{background:linear-gradient(135deg,#242424,#1c1c1c)!important;border-color:rgba(255,255,255,.10)!important}
+.subject-card:hover{border-color:rgba(255,208,0,.32)!important}
+.modules-grid{margin-top:8px}
