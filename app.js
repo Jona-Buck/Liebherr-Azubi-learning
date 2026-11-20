@@ -60,10 +60,17 @@ function switchView(view) {
   }
 
   const icon = viewIcons[view] || "book-open";
-  const title = view === "modules" ? "Deine Lernmodule" : info[0];
-  const description = view === "modules"
-    ? "Hier findest du später deine Lerninhalte nach Fachgebiet, Ausbildungsjahr und Fortschritt sortiert."
-    : "Dieser Bereich ist als Vorschau angelegt. Die eigentliche Funktion kann im nächsten Entwicklungsschritt ergänzt werden.";
+  if (view === "modules") {
+    const subjects = [
+      ["Elektrotechnik","Grundlagen & Anwendungen","zap",76,"8 Module · 42 Lektionen","subject-orange"],
+      ["Steuerungstechnik","SPS, Schütze & Relais","workflow",52,"6 Module · 31 Lektionen","subject-blue"],
+      ["Technische Mathematik","Formeln & Berechnungen","calculator",34,"5 Module · 26 Lektionen","subject-violet"]
+    ];
+    $("#main-content").innerHTML = '<section class="page-heading"><div><div class="eyebrow"><span class="eyebrow-line"></span> DEINE AUSBILDUNG</div><h1>Lernmodule</h1><p>Wähle einen Lernbereich deiner technischen Ausbildung.</p></div></section><section class="subject-grid modules-grid">' + subjects.map(s => '<button class="subject-card" data-subject="' + s[0] + '"><span class="subject-top"><span class="subject-icon ' + s[5] + '"><i data-lucide="' + s[2] + '"></i></span><span class="subject-arrow"><i data-lucide="arrow-up-right"></i></span></span><strong>' + s[0] + '</strong><span class="subject-caption">' + s[1] + '</span><span class="subject-progress"><span class="subject-track"><i style="width:' + s[3] + '%"></i></span><b>' + s[3] + ' %</b></span><span class="subject-meta">' + s[4] + '</span></button>').join("") + '</section>';
+    refreshIcons(); bindActions(); return;
+  }
+  const title = info[0];
+  const description = "Dieser Bereich ist als Vorschau angelegt. Die eigentliche Funktion kann im nächsten Entwicklungsschritt ergänzt werden.";
 
   $("#main-content").innerHTML =
     '<section class="page-heading">' +
